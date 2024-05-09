@@ -4,7 +4,8 @@
 
 
 
-
+@layer components {
     .active {
-        @apply !bg-blue-500 hover:!bg-blue-700;
+        @apply !bg-neutral-400 hover:!bg-black dark:hover:!bg-neutral-400 dark:hover:!text-slate-700;
     }
+}

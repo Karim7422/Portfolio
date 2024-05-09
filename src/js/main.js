@@ -1,3 +1,22 @@
+//Toggle Dark And Light Mode 
+let mode = localStorage.getItem('Current Mode');
+const windowsMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+if (mode === null) {
+    mode = windowsMode ? 'dark' : 'light';
+}
+localStorage.setItem('Current Mode', mode);
+document.documentElement.classList.add(mode);
+
+const btnToggler = document.getElementsByClassName('togglerBtn');
+const toggleModeArr = Array.from(btnToggler);
+toggleModeArr.map((el) => {
+    el.addEventListener('click', () => {
+        mode = mode === 'light' ? 'dark' : 'light';
+        localStorage.setItem('Current Mode', mode);
+        document.documentElement.classList.toggle('dark');
+    });
+});
+
 const openBTN = document.getElementById('nav-open')
 const closeBTN = document.getElementById('nav-close')
 const navList = document.getElementById('nav-list')
@@ -24,5 +43,6 @@ links.forEach((link) => {
     link.addEventListener('click', () => {
         document.querySelector('.active').classList.remove('active')
         link.classList.add('active')
+        
     })
 })
