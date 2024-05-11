@@ -9,3 +9,9 @@
         @apply !bg-neutral-400 hover:!bg-black group-hover:text-slate-300 dark:hover:!bg-neutral-400 dark:hover:!text-slate-700;
     }
 }
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a3a3a3;
+}
