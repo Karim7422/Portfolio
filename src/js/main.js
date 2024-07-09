@@ -38,11 +38,17 @@ closeBTN.addEventListener('click', () => {
 
 // navbar add and remove active class
 const links = document.querySelectorAll('.nav-link');
-
-links.forEach((link) => {
+links.forEach((link, index) => {
     link.addEventListener('click', () => {
-        document.querySelector('.active').classList.remove('active')
-        link.classList.add('active')
-        
-    })
-})
+        if (index === links.length - 1) {
+            return;
+        }
+        document.querySelector('.active')?.classList.remove('active');
+        link.classList.add('active');
+    });
+});
+
+// Get Current Year Dynamically And Add It In Footer
+const currentYear = new Date().getFullYear();
+const footerContent = document.querySelector('footer span')
+footerContent.innerHTML = `©️ All Rights Reserved ${currentYear}`
